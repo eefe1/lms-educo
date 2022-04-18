@@ -1,0 +1,172 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+  <div class="col-12 col-lg-6">
+    <!--         <img src="" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="Learning with Educo.">
+ -->
+  </div>
+  <div class="col-12 col-lg-6">
+    <h1 class="display-5 fw-bold mb-3"></h1>
+    <p class="lead">explore all trainnings and create your path</p>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <a
+        href="/explore-latest"
+        class="btn btn-primary btn-dark btn-lg px-4 me-md-2"
+        >Explore Courses</a
+      >
+      <a
+        href="/submit-course"
+        class="btn btn-outline-secondary btn-dark btn-lg px-4 me-md-2"
+        >Submit Course</a
+      >
+    </div>
+  </div>
+</div>
+
+<!-- Paths start-->
+
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+  <% if(paths != '' ){ %> <% paths.forEach(function(path, index){%>
+  <a href="/paths/<%-path.name%>" class="col text-center category__link">
+    <div class="category__img shadow">
+      <img src="img/<%-path.image%>" alt="<%-path.name%>" loading="lazy" />
+    </div>
+    <div class="pt-1"><%#-path.name%></div>
+  </a>
+  <% })%> <% }%>
+
+  <a href="/paths" class="col text-center category__link">
+    <div class="path__img shadow">
+      <img src="" alt="View All Paths" loading="lazy" />
+    </div>
+    <div class="pt-1">View All</div>
+  </a>
+</div>
+<!-- Paths End -->
+
+<!-- Latest Start -->
+
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Latest Courses</h2>
+    <a href="/explore-latest" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(word != '') { %> <% word.latest.forEach(function(course, index){ %>
+    <a href="/course/<%= course._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img
+          src="public/uploads/<%= course.image %>"
+          alt="<%= course.name %>"
+          loading="lazy"
+        />
+      </div>
+      <div class="pt-1"><%#= course.name %></div>
+    </a>
+    <% }) %> <% } else { %>
+    <p>No items found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- Latest End -->
+
+<!-- JS Start -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>JS Course Path</h2>
+    <a href="/paths/JS" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(word != '') { %> <% word.JS.forEach(function(course, index){ %>
+
+    <a href="/course/<%= course._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img
+          src="../public/uploads/<%= course._image %>"
+          alt="<%= course.name %>"
+          loading="lazy"
+        />
+      </div>
+      <div class="pt-1"><%= course.name %></div>
+    </a>
+    <% });%> <% } else { %>
+    <p>No Items Found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- JS End -->
+
+<!-- CSS Start -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>CSS Course Path</h2>
+    <a href="/paths/CSS" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(word != '') { %> 
+    <% word.CSS.forEach(function(course, index){ %>
+
+    <a href="/course/<%= course._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img
+          src="../public/uploads/<%= course._image %>"
+          alt="<%= course.name %>"
+          loading="lazy"
+        />
+      </div>
+      <div class="pt-1"><%= course.name %></div>
+    </a>
+    <% });%> <% } else { %>
+    <p>No Items Found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- CSS End -->
+
+<!-- Node Start -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Node Course Path</h2>
+    <a href="/paths/Node" class="ms-auto">View More</a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(word != ''){ %> <% word.Node.forEach(function(course, index){ %>
+
+    <a href="/course/<%= course._id %>" class="col text-center category__link">
+      <div class="category__img category__img--large shadow">
+        <img
+          src="../public/uploads/<%= course._image %>"
+          alt="<%= course.name %>"
+          loading="lazy"
+        />
+      </div>
+      <div class="pt-1"><%= course.name %></div>
+    </a>
+    <% });%> <% } else { %>
+    <p>No Items Found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- Node End -->
+
+<section class="px-4 py-5 my-5 text-center">
+  <img
+    src=""
+    class="d-block mx-auto mb-4 img-fluid"
+    
+    width="566"
+    height="208"
+    Loading="lazy"
+  />
+  <h1 class="display-5 fw-bold">"Publish your course"</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Publish</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="/submit-course" class="btn btn-primary btn-dark btn-lg"
+        >Submit Course</a
+      >
+    </div>
+  </div>
+</section>
